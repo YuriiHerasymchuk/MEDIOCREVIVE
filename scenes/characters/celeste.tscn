@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb1ltiws1i6m"]
+
+[ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_y3b6o"]
+[ext_resource type="Script" path="res://scripts/characters/celeste.gd" id="2_b1d4p"]
+[ext_resource type="Texture2D" uid="uid://c3thlv3mc0dcu" path="res://resources/celeste.png" id="3_dmqxk"]
+[ext_resource type="PackedScene" uid="uid://v2tbiwj4etwx" path="res://scenes/projectiles/celeste_dart.tscn" id="3_u4r65"]
+
+[node name="Celeste" node_paths=PackedStringArray("ReloadTimer", "AmmoLabel") instance=ExtResource("1_y3b6o")]
+script = ExtResource("2_b1d4p")
+Projectile = ExtResource("3_u4r65")
+ReloadTimer = NodePath("ReloadTimer")
+AmmoLabel = NodePath("AmmoLabel")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_dmqxk")
+
+[node name="ReloadTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+autostart = true
+
+[node name="AmmoLabel" type="Label" parent="." index="4"]
+self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
+offset_left = 11.0
+offset_top = -42.0
+offset_right = 51.0
+offset_bottom = -19.0
+text = "8"
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

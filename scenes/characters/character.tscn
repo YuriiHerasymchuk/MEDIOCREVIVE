@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dumox7ypqs2kv"]
+
+[ext_resource type="Texture2D" uid="uid://dk6epgpwwyu0u" path="res://resources/dummy.png" id="1_6wyni"]
+[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_lyeqs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2fce"]
+
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("char_sprite", "aim_line")]
+script = ExtResource("1_lyeqs")
+char_sprite = NodePath("Sprite2D")
+aim_line = NodePath("Line2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.28, 1.52)
+shape = SubResource("CapsuleShape2D_j2fce")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6wyni")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 10, 2)
+width = 1.0
+default_color = Color(0.903598, 0.903598, 0.903598, 1)
