@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhmga3kom4nng"]
+
+[ext_resource type="PackedScene" uid="uid://bdvuqd8dqw1qy" path="res://scenes/character.tscn" id="1_tkcoj"]
+[ext_resource type="PackedScene" uid="uid://dtuwfssivvyst" path="res://scenes/projectile.tscn" id="2_8wqvx"]
+[ext_resource type="PackedScene" uid="uid://dj5wkhj2vbcf" path="res://scenes/dummy.tscn" id="3_fdwae"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(287, 164)
+zoom = Vector2(2, 2)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_tkcoj")]
+position = Vector2(279, 156)
+Projectile = ExtResource("2_8wqvx")
+
+[node name="Dummy" parent="." instance=ExtResource("3_fdwae")]
+position = Vector2(511, 81)
+
+[node name="Dummy2" parent="." instance=ExtResource("3_fdwae")]
+position = Vector2(532, 182)
+
+[node name="Dummy3" parent="." instance=ExtResource("3_fdwae")]
+position = Vector2(472, 272)

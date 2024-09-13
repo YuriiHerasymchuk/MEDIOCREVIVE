@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj5wkhj2vbcf"]
+
+[ext_resource type="Texture2D" uid="uid://dk6epgpwwyu0u" path="res://resources/dummy.png" id="1_px03i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjv1v"]
+radius = 8.74149
+
+[node name="Dummy" type="Node2D" groups=["enemy"]]
+position = Vector2(538, 156)
+scale = Vector2(-1, 1)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_px03i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.25837, -1.43165)
+shape = SubResource("CapsuleShape2D_vjv1v")
