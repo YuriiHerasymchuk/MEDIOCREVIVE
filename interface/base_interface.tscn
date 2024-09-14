@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv14jkicqgtff"]
+
+[ext_resource type="PackedScene" uid="uid://dblnont2e0inn" path="res://interface/ability/base_ability.tscn" id="1_8gobf"]
+[ext_resource type="Script" path="res://scripts/UI_Manager.gd" id="1_71way"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mmuse"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0s61e"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpgrd"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_skk2e"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
+
+[node name="Control" type="Control" node_paths=PackedStringArray("Ability1", "Ability2", "Ability3", "Ability4")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+script = ExtResource("1_71way")
+Ability1 = NodePath("First Ability")
+Ability2 = NodePath("Second Ability")
+Ability3 = NodePath("Third Ability")
+Ability4 = NodePath("Fourth Ability")
+
+[node name="First Ability" parent="." instance=ExtResource("1_8gobf")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -72.0
+offset_right = -164.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_mmuse")
+Ability = 0
+
+[node name="Second Ability" parent="." instance=ExtResource("1_8gobf")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -71.0
+offset_right = -30.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_0s61e")
+Ability = 1
+
+[node name="Third Ability" parent="." instance=ExtResource("1_8gobf")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -72.0
+offset_right = 102.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_fpgrd")
+Ability = 2
+
+[node name="Fourth Ability" parent="." instance=ExtResource("1_8gobf")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = -71.0
+offset_right = 218.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("CompressedTexture2D_skk2e")
+Ability = 3

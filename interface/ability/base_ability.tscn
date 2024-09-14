@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dblnont2e0inn"]
+
+[ext_resource type="Texture2D" uid="uid://b50lt7twm1jwj" path="res://interface/ability_frame.png" id="1_enfrt"]
+[ext_resource type="Script" path="res://interface/ability/base_ability.gd" id="2_dpmeg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i4ofb"]
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" node_paths=PackedStringArray("AbilityKeybindLabel")]
+offset_right = 72.0
+offset_bottom = 72.0
+texture = ExtResource("1_enfrt")
+script = ExtResource("2_dpmeg")
+AbilityKeybindLabel = NodePath("Label")
+Ability = -1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.222
+anchor_bottom = 0.236
+offset_right = 0.0159988
+offset_bottom = 0.00799942
+text = "Q"
+label_settings = SubResource("LabelSettings_i4ofb")
+horizontal_alignment = 1
