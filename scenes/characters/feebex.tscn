@@ -1,13 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbsgta34dww1u"]
+[gd_scene load_steps=8 format=3 uid="uid://dbsgta34dww1u"]
 
 [ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_nknq7"]
 [ext_resource type="Script" path="res://scripts/characters/feebex.gd" id="2_vs6r8"]
 [ext_resource type="PackedScene" uid="uid://bqfl2uxxydhb7" path="res://scenes/projectiles/feebex_flame.tscn" id="3_cajqf"]
 [ext_resource type="Texture2D" uid="uid://1bjxkd35bdju" path="res://resources/feebex.png" id="4_5vy3p"]
+[ext_resource type="Texture2D" uid="uid://ch4buwktw26xa" path="res://resources/abilities/feebix/special.png" id="5_e6iax"]
+[ext_resource type="Script" path="res://scripts/abilities/feebix/special.gd" id="5_ysaq0"]
 
-[node name="Character" instance=ExtResource("1_nknq7")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcauy"]
+radius = 75.0067
+
+[node name="Character" node_paths=PackedStringArray("Ability3") instance=ExtResource("1_nknq7")]
 script = ExtResource("2_vs6r8")
 Projectile = ExtResource("3_cajqf")
+aim_line_length = 65
+Ability3 = NodePath("SpecialAbility")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("4_5vy3p")
+
+[node name="SpecialAbility" type="Node2D" parent="." index="3" node_paths=PackedStringArray("AbilityArea")]
+script = ExtResource("5_ysaq0")
+AbilityArea = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="SpecialAbility" index="0"]
+texture = ExtResource("5_e6iax")
+
+[node name="Area2D" type="Area2D" parent="SpecialAbility" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpecialAbility/Area2D" index="0"]
+shape = SubResource("CircleShape2D_jcauy")
