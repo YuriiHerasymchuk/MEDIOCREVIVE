@@ -1,19 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj5wkhj2vbcf"]
+[gd_scene load_steps=6 format=3 uid="uid://dj5wkhj2vbcf"]
 
+[ext_resource type="Script" path="res://scripts/dummy.gd" id="1_26ecb"]
 [ext_resource type="Texture2D" uid="uid://dk6epgpwwyu0u" path="res://resources/dummy.png" id="1_px03i"]
+[ext_resource type="PackedScene" uid="uid://ddk1m885s4hsu" path="res://scenes/damagable_area.tscn" id="2_45h6c"]
+[ext_resource type="PackedScene" uid="uid://bn7ybw1dbnbjb" path="res://scenes/hp_bar.tscn" id="2_cyb6k"]
+[ext_resource type="PackedScene" uid="uid://gfkamboj1jdh" path="res://scenes/death.tscn" id="2_qoy4r"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjv1v"]
-radius = 8.74149
-
-[node name="Dummy" type="Node2D" groups=["enemy"]]
+[node name="Dummy" type="Node2D" groups=["damagable", "enemy"]]
 position = Vector2(538, 156)
 scale = Vector2(-1, 1)
+script = ExtResource("1_26ecb")
+death_scene = ExtResource("2_qoy4r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_px03i")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HpBar" parent="." instance=ExtResource("2_cyb6k")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(1.25837, -1.43165)
-shape = SubResource("CapsuleShape2D_vjv1v")
+[node name="Area2D" parent="." instance=ExtResource("2_45h6c")]
+
+[connection signal="died" from="HpBar" to="." method="trigger_death"]
+[connection signal="took_damage" from="Area2D" to="HpBar" method="take_damage"]

@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb1ltiws1i6m"]
+[gd_scene load_steps=7 format=3 uid="uid://bb1ltiws1i6m"]
 
 [ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_y3b6o"]
 [ext_resource type="Script" path="res://scripts/characters/celeste.gd" id="2_b1d4p"]
 [ext_resource type="Texture2D" uid="uid://c3thlv3mc0dcu" path="res://resources/celeste.png" id="3_dmqxk"]
 [ext_resource type="PackedScene" uid="uid://v2tbiwj4etwx" path="res://scenes/projectiles/celeste_dart.tscn" id="3_u4r65"]
+[ext_resource type="AudioStream" uid="uid://i4akhkwon57i" path="res://resources/pa.mp3" id="5_o3eqs"]
+[ext_resource type="PackedScene" uid="uid://bn7ybw1dbnbjb" path="res://scenes/hp_bar.tscn" id="6_ui7at"]
 
-[node name="Celeste" node_paths=PackedStringArray("ReloadTimer", "AmmoLabel") instance=ExtResource("1_y3b6o")]
+[node name="Celeste" node_paths=PackedStringArray("shooting_audio_player", "reload_timer", "ammo_label") instance=ExtResource("1_y3b6o")]
 script = ExtResource("2_b1d4p")
-Projectile = ExtResource("3_u4r65")
-ReloadTimer = NodePath("ReloadTimer")
-AmmoLabel = NodePath("AmmoLabel")
+projectile_scene = ExtResource("3_u4r65")
+shooting_audio_player = NodePath("ShootingAudioPlayer")
+reload_timer = NodePath("ReloadTimer")
+ammo_label = NodePath("AmmoLabel")
+shooting_speed = 200
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_dmqxk")
@@ -20,10 +24,26 @@ autostart = true
 
 [node name="AmmoLabel" type="Label" parent="." index="4"]
 self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
-offset_left = 11.0
-offset_top = -42.0
-offset_right = 51.0
-offset_bottom = -19.0
+offset_left = 15.0
+offset_top = -32.0
+offset_right = 26.0
+offset_bottom = -9.0
 text = "8"
+
+[node name="AmmoLabel" type="Label" parent="AmmoLabel" index="0"]
+self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
+offset_left = 10.0
+offset_top = -1.0
+offset_right = 21.0
+offset_bottom = 22.0
+scale = Vector2(0.625317, 0.526943)
+text = "3"
+
+[node name="ShootingAudioPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("5_o3eqs")
+volume_db = -5.0
+pitch_scale = 1.44
+
+[node name="HpBar" parent="." index="6" instance=ExtResource("6_ui7at")]
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

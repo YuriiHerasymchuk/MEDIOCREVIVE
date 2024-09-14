@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddk1m885s4hsu"]
+
+[ext_resource type="Script" path="res://scripts/damagable_area.gd" id="1_46fpu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjv1v"]
+radius = 8.74149
+
+[node name="DamagableArea" type="Area2D" groups=["damagable"]]
+script = ExtResource("1_46fpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.25837, -1.43165)
+shape = SubResource("CapsuleShape2D_vjv1v")

@@ -10,6 +10,8 @@ func _physics_process(delta):
 	position += transform.x * speed * delta
 
 func _on_area_2d_area_entered(area):
-	if area.owner.is_in_group("enemy"):
+	print("Hit something")
+	if area.is_in_group("damagable"):
 		print("Hit an enemy")
 		self.queue_free()
+		area.take_damage(30)

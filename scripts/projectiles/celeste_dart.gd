@@ -17,7 +17,7 @@ func _physics_process(delta):
 	if is_slowing_down:
 		var closest_distance = 80 # TODO: change to max float
 		var closest_enemy = null
-		var all_enemy = get_tree().get_nodes_in_group("enemy")
+		var all_enemy = get_tree().get_nodes_in_group("damagable") # TODO: change groups
 		
 		for enemy in all_enemy:
 			var distance_to_enemy = self.position.distance_to(enemy.position)
