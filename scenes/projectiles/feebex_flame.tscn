@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqfl2uxxydhb7"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/feebex_flame.gd" id="1_u7x8k"]
+[ext_resource type="Texture2D" uid="uid://bub2ykvgyilro" path="res://resources/flameprojectile.png" id="2_mji4g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ic5nl"]
+radius = 60.7142
+height = 700.016
+
+[node name="Projectile" type="Node2D" node_paths=PackedStringArray("FLAME_AREA", "FLAME_DAMAGE_TIMER", "ProjectileSprite")]
+script = ExtResource("1_u7x8k")
+FLAME_AREA = NodePath("Area2D")
+FLAME_DAMAGE_TIMER = NodePath("DamageTickTimer")
+ProjectileSprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(35, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_mji4g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(34, 0)
+scale = Vector2(0.560001, 0.0399991)
+shape = SubResource("CapsuleShape2D_ic5nl")
+
+[node name="DamageTickTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

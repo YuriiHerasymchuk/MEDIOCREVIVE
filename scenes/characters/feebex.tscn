@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbsgta34dww1u"]
+
+[ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_nknq7"]
+[ext_resource type="Script" path="res://scripts/characters/feebex.gd" id="2_vs6r8"]
+[ext_resource type="PackedScene" uid="uid://bqfl2uxxydhb7" path="res://scenes/projectiles/feebex_flame.tscn" id="3_cajqf"]
+[ext_resource type="Texture2D" uid="uid://1bjxkd35bdju" path="res://resources/feebex.png" id="4_5vy3p"]
+
+[node name="Character" instance=ExtResource("1_nknq7")]
+script = ExtResource("2_vs6r8")
+Projectile = ExtResource("3_cajqf")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_5vy3p")
