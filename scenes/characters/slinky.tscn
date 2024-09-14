@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmotq8n7ki7b"]
+
+[ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_tin5p"]
+[ext_resource type="Texture2D" uid="uid://5aav0xawq5ij" path="res://resources/Slinky.png" id="2_6c7bx"]
+
+[node name="Character" instance=ExtResource("1_tin5p")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_6c7bx")
+
+[node name="ReloadTimer" type="Timer" parent="." index="3"]
+wait_time = 0.1
+autostart = true
+
+[node name="AmmoLabel" type="Label" parent="." index="4"]
+self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
+offset_left = 11.0
+offset_top = -42.0
+offset_right = 51.0
+offset_bottom = -19.0
+text = "81"
