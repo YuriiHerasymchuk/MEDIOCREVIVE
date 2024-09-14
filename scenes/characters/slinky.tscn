@@ -1,21 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpmotq8n7ki7b"]
+[gd_scene load_steps=6 format=3 uid="uid://7xjl52bjusrv"]
 
-[ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_tin5p"]
+[ext_resource type="PackedScene" uid="uid://dumox7ypqs2kv" path="res://scenes/characters/character.tscn" id="1_ploqq"]
 [ext_resource type="Texture2D" uid="uid://5aav0xawq5ij" path="res://resources/Slinky.png" id="2_6c7bx"]
+[ext_resource type="Script" path="res://scripts/characters/slinky.gd" id="2_ulrpc"]
 
-[node name="Character" instance=ExtResource("1_tin5p")]
+[sub_resource type="Curve" id="Curve_mwioh"]
+max_value = 5.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1l10"]
+
+[node name="Slinky" node_paths=PackedStringArray("aim_line") instance=ExtResource("1_ploqq")]
+script = ExtResource("2_ulrpc")
+Projectile = null
+aim_line = NodePath("SlinkyAimLine")
+character_speed = 150
+aim_line_length = 90
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_6c7bx")
+flip_h = true
 
-[node name="ReloadTimer" type="Timer" parent="." index="3"]
+[node name="SlinkyAimLine" type="Line2D" parent="." index="3"]
+modulate = Color(1, 1, 1, 0.431373)
+points = PackedVector2Array(0, 0, 10, 2)
+width_curve = SubResource("Curve_mwioh")
+default_color = Color(0.903598, 0.903598, 0.903598, 1)
+
+[node name="ReloadTimer" type="Timer" parent="." index="4"]
 wait_time = 0.1
 autostart = true
 
-[node name="AmmoLabel" type="Label" parent="." index="4"]
+[node name="AmmoLabel" type="Label" parent="." index="5"]
 self_modulate = Color(0.223103, 0.223103, 0.223103, 1)
 offset_left = 11.0
 offset_top = -42.0
 offset_right = 51.0
 offset_bottom = -19.0
-text = "81"
+text = "1"
+label_settings = SubResource("LabelSettings_u1l10")
