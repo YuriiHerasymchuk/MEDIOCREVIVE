@@ -1,21 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://dv14jkicqgtff"]
 
 [ext_resource type="PackedScene" uid="uid://dblnont2e0inn" path="res://interface/ability/base_ability.tscn" id="1_8gobf"]
-[ext_resource type="Script" path="res://scripts/UI_Manager.gd" id="1_71way"]
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_71way"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mmuse"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0m8lq"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0s61e"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4ken3"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fpgrd"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qy22c"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_skk2e"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7256j"]
 resource_local_to_scene = true
 load_path = "res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
 
@@ -47,7 +47,7 @@ offset_right = -164.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("CompressedTexture2D_mmuse")
+texture = SubResource("CompressedTexture2D_0m8lq")
 Ability = 0
 
 [node name="Second Ability" parent="." instance=ExtResource("1_8gobf")]
@@ -63,7 +63,7 @@ offset_right = -30.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("CompressedTexture2D_0s61e")
+texture = SubResource("CompressedTexture2D_4ken3")
 Ability = 1
 
 [node name="Third Ability" parent="." instance=ExtResource("1_8gobf")]
@@ -79,7 +79,7 @@ offset_right = 102.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("CompressedTexture2D_fpgrd")
+texture = SubResource("CompressedTexture2D_qy22c")
 Ability = 2
 
 [node name="Fourth Ability" parent="." instance=ExtResource("1_8gobf")]
@@ -95,5 +95,5 @@ offset_right = 218.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("CompressedTexture2D_skk2e")
+texture = SubResource("CompressedTexture2D_7256j")
 Ability = 3
