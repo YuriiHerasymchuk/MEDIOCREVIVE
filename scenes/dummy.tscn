@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddk1m885s4hsu" path="res://scenes/damagable_area.tscn" id="2_45h6c"]
 [ext_resource type="PackedScene" uid="uid://bn7ybw1dbnbjb" path="res://scenes/hp_bar.tscn" id="2_cyb6k"]
 [ext_resource type="PackedScene" uid="uid://gfkamboj1jdh" path="res://scenes/death.tscn" id="2_qoy4r"]
-[ext_resource type="Texture2D" uid="uid://d0krcxtq704qe" path="res://resources/stun.png" id="6_qm67k"]
+[ext_resource type="Texture2D" uid="uid://d0krcxtq704qe" path="res://resources/stun.png" id="6_d5b1q"]
 
 [node name="Dummy" type="Node2D" node_paths=PackedStringArray("effects_node") groups=["damagable", "enemy"]]
 position = Vector2(538, 156)
@@ -15,21 +15,19 @@ death_scene = ExtResource("2_qoy4r")
 effects_node = NodePath("Effects")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(1, -18)
 texture = ExtResource("1_px03i")
+offset = Vector2(0, -18)
 
-[node name="HpBar" parent="." groups=["enemy"] instance=ExtResource("2_cyb6k")]
+[node name="HpBar" parent="." instance=ExtResource("2_cyb6k")]
 
 [node name="Area2D" parent="." instance=ExtResource("2_45h6c")]
-position = Vector2(0, -19.26)
-scale = Vector2(1.32, 2.6)
 
 [node name="Effects" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Effects"]
-position = Vector2(0, -63)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_qm67k")
+position = Vector2(0, -65)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_d5b1q")
 
 [connection signal="died" from="HpBar" to="." method="trigger_death"]
 [connection signal="took_damage" from="Area2D" to="HpBar" method="take_damage"]
