@@ -18,6 +18,9 @@ var ammo = MAX_AMMO
 func _physics_process(delta):
 	super._physics_process(delta)
 	
+	if not stun_effects.is_empty():
+		return
+	
 	# Shooting
 	if Input.is_action_just_pressed("shoot"):
 		is_shooting = true

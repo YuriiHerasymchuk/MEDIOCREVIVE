@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v2tbiwj4etwx" path="res://scenes/projectiles/celeste_dart.tscn" id="3_u4r65"]
 [ext_resource type="AudioStream" uid="uid://i4akhkwon57i" path="res://resources/pa.mp3" id="5_o3eqs"]
 [ext_resource type="PackedScene" uid="uid://bn7ybw1dbnbjb" path="res://scenes/hp_bar.tscn" id="6_ui7at"]
-[ext_resource type="PackedScene" uid="uid://olnn0apuv4kq" path="res://scenes/abilities/ice_crush.tscn" id="7_58bjy"]
+[ext_resource type="PackedScene" path="res://scenes/abilities/ice_crush.tscn" id="7_58bjy"]
 
 [node name="Celeste" node_paths=PackedStringArray("shooting_audio_player", "reload_timer", "ammo_label") instance=ExtResource("1_y3b6o")]
 script = ExtResource("2_b1d4p")
