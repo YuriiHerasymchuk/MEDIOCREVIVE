@@ -9,5 +9,5 @@ radius = 8.74149
 script = ExtResource("1_46fpu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.25837, -1.43165)
+scale = Vector2(1.01837, -0.631651)
 shape = SubResource("CapsuleShape2D_vjv1v")

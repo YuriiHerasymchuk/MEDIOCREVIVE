@@ -40,21 +40,20 @@ func _physics_process(delta):
 		
 		shooting_audio_player.play()
 		
-		var mouse_position = get_global_mouse_position()
+		var mouse_position = get_local_mouse_position()
+		mouse_position -= char_sprite.offset
 		
-		projectile.transform = self.global_transform
+		projectile.transform = char_sprite.global_transform.translated(char_sprite.offset)
 		
-		var local_angle = get_local_mouse_position().angle()
+		var local_angle = Vector2(1, 0).angle_to(mouse_position)
 		
 		var shoot_side = PlayerDirection.LEFT if abs(local_angle) > PI / 2 else PlayerDirection.RIGHT
 		super.override_facing_side(shoot_side)
 		
 		var shooting_vector = Vector2.from_angle(local_angle) * 20
-		
 		projectile.translate(shooting_vector)
 		
-		var angle = projectile.transform.get_origin().angle_to_point(mouse_position)
-		projectile.rotate(angle)
+		projectile.rotate(local_angle)
 
 func _on_reload_timer_timeout():
 	var timestamp = Time.get_ticks_msec()

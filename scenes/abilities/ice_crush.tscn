@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://olnn0apuv4kq"]
+
+[ext_resource type="Texture2D" uid="uid://d2dpssro5wokm" path="res://resources/ice_crush.png" id="1_5tcgy"]
+[ext_resource type="Script" path="res://scripts/abilities/ice_crush.gd" id="1_h44ho"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgx4u"]
+
+[node name="IceCrush" type="Node2D" node_paths=PackedStringArray("ability_area_2d")]
+z_index = -100
+script = ExtResource("1_h44ho")
+ability_area_2d = NodePath("Area2D")
+
+[node name="IceSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5tcgy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(17.5465, 17.4595)
+shape = SubResource("CircleShape2D_tgx4u")

@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name HpModule
+
 @export var hp_line: Sprite2D
 @export var base_hp: int = 100
 @export var additional_hp: Dictionary = {}
