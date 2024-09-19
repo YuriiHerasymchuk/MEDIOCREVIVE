@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhmga3kom4nng"]
+[gd_scene load_steps=4 format=3 uid="uid://bhmga3kom4nng"]
 
 [ext_resource type="PackedScene" uid="uid://bb1ltiws1i6m" path="res://scenes/characters/celeste.tscn" id="2_x8q1e"]
 [ext_resource type="PackedScene" uid="uid://dj5wkhj2vbcf" path="res://scenes/dummy.tscn" id="3_fdwae"]
+[ext_resource type="PackedScene" uid="uid://d0no5hkxo7pjn" path="res://scenes/hud/hud_ui.tscn" id="3_os7od"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="HudUi" parent="." instance=ExtResource("3_os7od")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(287, 164)
+position = Vector2(481, 270)
 zoom = Vector2(2, 2)
 
 [node name="Dummy" parent="." instance=ExtResource("3_fdwae")]
-position = Vector2(511, 81)
+position = Vector2(705, 187)
 
 [node name="Dummy2" parent="." instance=ExtResource("3_fdwae")]
-position = Vector2(532, 182)
+position = Vector2(726, 288)
 
 [node name="Dummy3" parent="." instance=ExtResource("3_fdwae")]
-position = Vector2(472, 272)
+position = Vector2(666, 378)
 
 [node name="Celeste" parent="." instance=ExtResource("2_x8q1e")]
-position = Vector2(247, 137)
+position = Vector2(441, 243)

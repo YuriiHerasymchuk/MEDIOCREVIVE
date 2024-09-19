@@ -22,8 +22,7 @@ func _physics_process(delta):
 		
 	var timestamp = Time.get_ticks_msec()
 	
-	if is_shooting:
-		
+	if is_shooting:	
 		if !flame_on:
 			flame_on = true
 			flame = Projectile.instantiate()
@@ -39,3 +38,10 @@ func _physics_process(delta):
 			
 			# Add the Timer as a child of the Projectile
 			self.add_child(timer)
+		else:
+			var local_angle = get_local_mouse_position().angle()
+			var shoot_side = PlayerDirection.LEFT if abs(local_angle) > PI / 2 else PlayerDirection.RIGHT
+			super.override_facing_side(shoot_side)
+
+#func on_ability_triggered(ability_name: String) -> void:
+	#Ability3.trigger()

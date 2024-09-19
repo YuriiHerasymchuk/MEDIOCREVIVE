@@ -5,6 +5,11 @@ class_name BaseCharacter extends CharacterBody2D
 @export var character_speed: int = 300
 @export var aim_line_length: int = 200
 
+@export var Ability1: Ability
+@export var Ability2: Ability
+@export var Ability3: Ability
+@export var Ability4: Ability
+
 enum PlayerDirection { LEFT, RIGHT }
 
 var character_direction: PlayerDirection = PlayerDirection.RIGHT
@@ -12,6 +17,9 @@ var overriden_character_direction = null
 var overriden_speed = null
 
 var stun_effects: Dictionary = {}
+
+func _ready():
+	get_parent().connect("ability_triggered", Callable(self, "on_ability_triggered"))
 
 func _physics_process(delta):
 	draw_aim_line()
@@ -70,3 +78,19 @@ func apply_stun_effect(ability_id, is_active, active_till = null):
 		stun_effects.erase(ability_id)
 		
 	print(stun_effects)
+
+func on_ability_triggered(ability_name: String) -> void:
+	print(ability_name)
+	match ability_name:
+		"dash":
+			if Ability1:
+				Ability1.trigger()
+		"secondary_ability":
+			if Ability2:
+				Ability2.trigger()
+		"special_ability":
+			if Ability3:
+				Ability3.trigger()
+		"ult_ability": 
+			if Ability4:
+				Ability4.trigger()
