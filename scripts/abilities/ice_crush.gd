@@ -1,8 +1,17 @@
 extends Node2D
 
 const uuid_util = preload("res://addons/uuid/uuid.gd")
+const thumbnail: CompressedTexture2D = preload("res://resources/ice_crush_thum.jpg")
 
 @export var ability_area_2d: Area2D
+
+const ability_input_event_by_type = {
+	Enums.AbilityType.SHOOT: "shoot",
+	Enums.AbilityType.FIRST: "first_ability",
+	Enums.AbilityType.SECOND: "second_ability",
+	Enums.AbilityType.MOVEMENT: "movement_ability",
+	Enums.AbilityType.ULT: "ult_ability"
+}
 
 @export var cooldown: int = 20000 # 20 seconds
 @export var ability_duration: int = 3500 # 3.5 seconds
@@ -10,18 +19,22 @@ const uuid_util = preload("res://addons/uuid/uuid.gd")
 @export var reactivation_effect_threshold: int = 2750 # 2.75 seconds
 @export var stun_duration = 2000 # 2 seconds
 @export var damage_amount = 60
-@export var input_name := "ult"
 @export var ability_name := "Ice Crush"
 
 signal stun_self(ability_id: String, is_active: bool)
 
+const input_name := ability_input_event_by_type[Enums.AbilityType.ULT]
 var last_used_timestamp = cooldown * -1;
 var activation_timer := Timer.new()
 var is_ability_active = false
 var ability_activation_token: String
+var ability_frame: AbilityFrame
 
 func _ready():
 	self.hide()
+	
+	ability_frame = HudController.ult_ability_frame
+	ability_frame.set_ability_thumbnail(thumbnail)
 	
 	activation_timer.autostart = false
 	activation_timer.wait_time = float(ability_duration) / 1000
@@ -40,11 +53,11 @@ func _physics_process(delta):
 	var is_ability_pressed = Input.is_action_just_pressed(input_name)
 
 	if is_ability_pressed and is_ability_up:
-		print("Ability Activated")
-
 		last_used_timestamp = timestamp
 		is_ability_active = true
 		ability_activation_token = uuid_util.v4()
+		
+		ability_frame.start_cooldown(last_used_timestamp + cooldown)
 
 		self.show()
 		activation_timer.start()

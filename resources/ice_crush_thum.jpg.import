@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50lt7twm1jwj"
-path="res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"
+uid="uid://wpt3t308womw"
+path="res://.godot/imported/ice_crush_thum.jpg-77c7500c6cd0c068bb619cf10e214c32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interface/ability_frame.png"
-dest_files=["res://.godot/imported/ability_frame.png-188a1d070d135e2a6dee9fc59ba24f82.ctex"]
+source_file="res://resources/ice_crush_thum.jpg"
+dest_files=["res://.godot/imported/ice_crush_thum.jpg-77c7500c6cd0c068bb619cf10e214c32.ctex"]
 
 [params]
 

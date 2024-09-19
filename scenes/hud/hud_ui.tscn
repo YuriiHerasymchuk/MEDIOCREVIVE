@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0no5hkxo7pjn"]
+
+[ext_resource type="Script" path="res://scripts/hud/hud_ui.gd" id="1_4rdv1"]
+[ext_resource type="PackedScene" uid="uid://dblnont2e0inn" path="res://scenes/hud/ability_frame.tscn" id="1_o0d83"]
+
+[node name="HudUi" type="CanvasLayer" node_paths=PackedStringArray("shooting_ability_frame", "first_ability_frame", "movement_ability_frame", "second_ability_frame", "ult_ability_frame")]
+offset = Vector2(0, -30)
+transform = Transform2D(1, 0, 0, 1, 0, -30)
+script = ExtResource("1_4rdv1")
+shooting_ability_frame = NodePath("HBoxContainer/Shooting")
+first_ability_frame = NodePath("HBoxContainer/First Ability")
+movement_ability_frame = NodePath("HBoxContainer/Movement Ability")
+second_ability_frame = NodePath("HBoxContainer/Second Ability")
+ult_ability_frame = NodePath("HBoxContainer/Ult Ability")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(80, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -70.0
+offset_right = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Shooting" parent="HBoxContainer" instance=ExtResource("1_o0d83")]
+layout_mode = 2
+ability_type = null
+
+[node name="First Ability" parent="HBoxContainer" instance=ExtResource("1_o0d83")]
+layout_mode = 2
+ability_type = 1
+
+[node name="Movement Ability" parent="HBoxContainer" instance=ExtResource("1_o0d83")]
+layout_mode = 2
+ability_type = 3
+
+[node name="Second Ability" parent="HBoxContainer" instance=ExtResource("1_o0d83")]
+layout_mode = 2
+ability_type = 2
+
+[node name="Ult Ability" parent="HBoxContainer" instance=ExtResource("1_o0d83")]
+layout_mode = 2
+ability_type = 4
